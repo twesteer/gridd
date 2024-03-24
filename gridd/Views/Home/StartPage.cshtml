@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Views_Home_StartPage>
+<style>
+    #container{
+        margin-left: 0px;
+    }
+
+    h2{
+        color:white;
+        font-family:Arial;
+    }
+    .block {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 80px;
+    }
+
+    .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 40px 40px 0;
+    }
+
+    .content-container {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: transparent;
+        border-radius: 0 40px 40px 0;
+    }
+
+    .content-container h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        
+    }
+
+    .content-container p {
+        font-size: 16px;
+        line-height: 1.5;
+    
+    }
+
+    .list-group-item{
+        background-color: #014F86;
+        color: white;
+        text-align:center;
+    }
+    
+    .card{
+        border-radius: 20px;
+    }
+    
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" style="float:left;">
+            <div class="block">
+                <div class="image-container">
+                    <img src="images\baldur.jpeg" class="background-image" alt="Baldur's Gate III">
+                </div>
+                <div class="content-container">
+                    <h2>СВЕЖИЕ НОВОСТИ</h2>
+                </div>
+            </div>
+            <div class="block">
+                <div class="image-container">
+                    <img src="images\tekken.jpg" class="background-image" alt="Tekken">
+                </div>
+                <div class="content-container">
+                    <h2>АКТУАЛЬНЫЕ СКИДКИ</h2>
+                </div>
+            </div>
+            <div class="block">
+                <div class="image-container">
+                    <img src="images\valheim.jpg" class="background-image" alt="Valheim">
+                </div>
+                <div class="content-container">
+                    <h2>ОЖИДАЕМ</h2>
+                </div>
+            </div>
+            <div class="block">
+                <div class="image-container">
+                    <img src="images\rust.png" class="background-image" alt="Rust">
+                </div>
+                <div class="content-container">
+                    <h2>ТО, ЧТО МЫ РЕКОМЕНДУЕМ</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; margin:5%; background-color:#014F86">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:white;">Категории</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Спортивные игры</li>
+                        <li class="list-group-item">Открытый мир</li>
+                        <li class="list-group-item">Рогалик</li>
+                        <li class="list-group-item">Продукты для VR</li>
+                        <li class="list-group-item">Бесплатно</li>
+                        <li class="list-group-item">Экшен</li>
+                        <li class="list-group-item">Аниме</li>
+                        <li class="list-group-item">Симулятор</li>
+                        <li class="list-group-item">Хоррор</li>
+                        <li class="list-group-item">Визуальная новелла</li>
+                        <li class="list-group-item">Гонки</li>
+                        <li class="list-group-item">Стратегия</li>
+                        <li class="list-group-item">Кооперативы</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; height: 30rem; margin:5%; background-color:#014F86">
+                <div class="card-body" style="align-content:center">
+                    <h5 class="card-title" style="color:white; align-self:start">Друзья</h5>
+                    <p class="card-text" style="color:white; text-align:justify">Войдите в свой аккаунт, чтобы просматривать список друзей.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
