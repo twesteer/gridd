@@ -42,10 +42,26 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+footer {
+    background-color: #023C65;
+    color: #fff;
+    align-content:end;
+}
+
+footer h3 {
+    color: #fff;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #ccc;
+}
+
+footer .social-networks i {
+    color: #fff;
+    font-size: 24px;
 }
