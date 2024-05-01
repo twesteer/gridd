@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow mb-3" style="background-color: #01497C;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="StartPage">
-                    <img src="images\logo.png" alt="" width="60" height="48">
+                    <img src="\images\logo.png" alt="" width="60" height="48">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -32,32 +32,34 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer>
-        <div class="container">
+    <footer class="text-center text-lg-start">
+        <div class="container p-4">
             <div class="row">
-                <div class="col-sm-6">
-                    <h3>НАШИ КОНТАКТЫ:</h3>
-                    <ul>
-                        <li><a>Телефон: +7 (999) 999-99-99</a></li>
-                        <li><a>Электронная почта: Grid@gmail.com</a></li>
-                    </ul>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Наши контакты:</h5>
+                    <p>
+                        <strong>Телефон:</strong> 8 (999) 999-9999<br>
+                        <strong>Электронная почта:</strong> Grid@gmail.com
+                    </p>
                 </div>
-                <div class="col-sm-6">
-                    <h3>НАШИ СОЦИАЛЬНЫЕ СЕТИ:</h3>
-                    <h5>Следите за нами в социальных сетях</h5>
-                    <ul class="social-networks">
-                        <li><a href="https://vk.com/Grid"><i class="fa fa-vk"></i>https://vk.com/Grid</a></li>
-                    </ul>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Наши социальные сети:</h5>
+                    <p>Следите за нами в социальных сетях</p>
+                    <a href="https://vk.com/Grid" target="_blank">https://vk.com/Grid</a>
                 </div>
             </div>
         </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 Все права защищены: <a class="text-dark" href="https://vk.com/Grid">Grid</a>
+        </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

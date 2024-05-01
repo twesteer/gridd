@@ -44,24 +44,20 @@ button.accept-policy {
 
 footer {
     background-color: #023C65;
-    color: #fff;
-    align-content:end;
+    color: white;
+    padding-top: 20px; 
+    font-size: 14px; 
 }
 
-footer h3 {
-    color: #fff;
+footer a {
+    color: #fff; 
 }
 
-footer ul li a {
-    color: #fff;
+footer a:hover {
     text-decoration: none;
 }
 
-footer ul li a:hover {
-    color: #ccc;
-}
-
-footer .social-networks i {
-    color: #fff;
-    font-size: 24px;
+.container {
+    display: flex;
+    justify-content: flex-start;
 }

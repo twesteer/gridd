@@ -28,6 +28,11 @@ namespace gridd.Controllers
             return View();
         }
 
+        public IActionResult WaitPage()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

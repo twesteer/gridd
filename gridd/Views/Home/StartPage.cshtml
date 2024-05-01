@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<Views_Home_StartPage>
 <style>
-    #container{
-        margin-left: 0px;
-    }
+
 
     h2{
         color:white;
@@ -61,11 +59,20 @@
         border-radius: 20px;
     }
     
+    #ttt{
+        margin-left: -12px;
+        
+    }
+
+    
+    
 </style>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8" style="float:left;">
-            <div class="block">
+        <div id="ttt" class="col-md-8">
+            <a asp-area ="" asp-controller="Home" asp-action="WaitPage">
+            <div class="block" >
                 <div class="image-container">
                     <img src="images\baldur.jpeg" class="background-image" alt="Baldur's Gate III">
                 </div>
@@ -73,6 +80,7 @@
                     <h2>СВЕЖИЕ НОВОСТИ</h2>
                 </div>
             </div>
+            </a>
             <div class="block">
                 <div class="image-container">
                     <img src="images\tekken.jpg" class="background-image" alt="Tekken">
@@ -98,6 +106,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card" style="width: 18rem; margin:5%; background-color:#014F86">
                 <div class="card-body">
