@@ -1,0 +1,260 @@
+﻿@model IEnumerable<Views_Home_ActualPage>
+
+<style>
+
+    .price-tag {
+        font-size: 1.2em;
+        background-color: #013A63;
+        border-radius: 5px;
+    }
+
+    .card-body {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter:blur(2px)
+    }
+    
+    .btn{
+        background-color: #013A63;
+       
+    }
+
+        .block {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 80px;
+    }
+
+    .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 40px 40px 0;
+    }
+
+    .content-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        border-radius: 0 40px 40px 0;
+    }
+
+        .content-container h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .content-container p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+
+    .eeeee{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    h2 {
+        color: white;
+        font-family: Arial;
+    }
+
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .status {
+        height: 10px;
+        width: 10px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .online {
+        background-color: #28a745;
+    }
+
+    .offline {
+        background-color: #dc3545;
+    }
+
+    h2 {
+        color: white;
+        font-family: Arial;
+    }
+
+    .photo-block {
+        position: relative;
+        width: 100%;
+        height: 250px; /* Устанавливаем фиксированную высоту */
+        background-color: #f8f9fa;
+        overflow: hidden; /* Скрываем часть изображения, выходящую за рамки */
+        border-radius: 10px
+    }
+
+    .photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Заполняет блок, сохраняя пропорции */
+        display: block;
+    }
+
+    .photo-button {
+        position: absolute;
+        bottom: 10px; /* Расположение кнопки внизу */
+        left: 50%; /* Центрирование кнопки */
+        transform: translateX(-50%); /* Точное центрирование */
+    }
+
+    .text-block {
+        background-color: #014F86; /* Синий фон */
+        color: white; /* Белый текст */
+        padding: 20px; /* Добавляем внутренние отступы */
+        height: 250px; /* Высота за вычетом паддингов */
+        overflow: auto; /* Добавляет скролл при необходимости */
+        border-radius: 8px; /* Скругление углов */
+    }
+</style>
+
+<div class="block">
+
+    <div class="image-container">
+        <img src="\images\tekken.jpg" class="background-image" alt="Tekken">
+    </div>
+    <div class="content-container">
+        <h2>Актуальные Скидки</h2>
+        <a class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" style="width: 150px" asp-area="" asp-controller="Home" asp-action="">Вернуться на главную</a>
+    </div>
+
+</div>
+
+<div class="col-3">
+    <ul class="list-group" style="background-color: #01497C">
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/valheim.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#14372</small>
+            </div>
+            <span class="status online ml-auto"></span>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#26734</small>
+            </div>
+            <span class="status offline ml-auto"></span>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#26734</small>
+            </div>
+            <span class="status offline ml-auto"></span>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#26734</small>
+            </div>
+            <span class="status offline ml-auto"></span>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#26734</small>
+            </div>
+            <span class="status offline ml-auto"></span>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+            <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+            <div class="ml-3">
+                <h6 class="mb-0">Ник пользователя</h6>
+                <small>#26734</small>
+            </div>
+            <span class="status offline ml-auto"></span>
+        </li>
+        <!-- Добавьте дополнительные элементы списка для других друзей -->
+    </ul>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/baldur.jpeg" alt="Card image cap">
+                <div class="card-body d-flex justify-content-between flex-column">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="price-tag px-3 py-1 text-white">$199.99</div>
+                        <button class="btn text-white">В корзину</button>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-2 ">Посетить магазин</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/tekken.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="price-tag px-3 py-1 text-white">$299.99</div>
+                        <button class="btn text-white">В корзину</button>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/valheim.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="price-tag px-3 py-1 text-white">$399.99</div>
+                        <button class="btn text-white">В корзину</button>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/rust.png" alt="Card image cap">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="price-tag px-3 py-1 text-white">$499.99</div>
+                        <button class="btn text-white">В корзину</button>
+                    </div>
+                    <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

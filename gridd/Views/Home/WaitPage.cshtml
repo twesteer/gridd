@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<Views_Home_WaitPage>
 
 <style>
-    ul{
-        background-color: #01497C;
-    }
+    
     .avatar {
         vertical-align: middle;
         width: 50px;
@@ -120,25 +118,27 @@
         border-color: #1861ac;
     }
 </style>
+<div class="block">
 
+                <button class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" style="width: 150px" asp-area="" asp-controller="Home" asp-action="StartPage">Вернуться на главную</button>
+
+                <div class="image-container">
+                    <img src="\images\tekken.jpg" class="background-image" alt="Tekken">
+                </div>
+                <div class="content-container">
+                    <h2>МЫ ОЖИДАЕМ</h2>
+                </div>
+
+            </div>
 <div class="container">
+    
     <div class="row">
         
         <div class="col-9">
             <!-- Большой блок сверху -->
+            
             <div class="row">
-                <div class="block">
-                    
-                        <button class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" style="width: 150px" asp-area="" asp-controller="Home" asp-action="StartPage">Вернуться на главную</button>
-                   
-                    <div class="image-container">
-                        <img src="\images\tekken.jpg" class="background-image" alt="Tekken">
-                    </div>
-                    <div class="content-container">
-                        <h2>МЫ ОЖИДАЕМ</h2>
-                    </div>
-                    
-                </div>
+                
             </div>
             <!-- Первая строка с двумя маленькими блоками -->
             <div class="row mt-3">
