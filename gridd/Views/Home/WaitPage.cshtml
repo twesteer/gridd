@@ -1,7 +1,102 @@
 ﻿@model IEnumerable<Views_Home_WaitPage>
 
 <style>
-    
+    .block {
+        position: relative;
+        width: 100%;
+        height: 300px; /* Установленная высота */
+        margin-bottom: 80px;
+        overflow: hidden; /* Обрезка содержимого, выходящего за границы */
+        filter: drop-shadow(0px 5px 10px #000000);
+    }
+
+    .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center; /* Центрирование содержимого по горизонтали */
+        align-items: center; /* Центрирование содержимого по вертикали */
+        filter: drop-shadow(0px 5px 10px #000000);
+    }
+
+    .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        padding: 20px; /* Обеспечиваем немного внутреннего пространства */
+        color: white; /* Цвет текста */
+        overflow: visible; /* Позволяет псевдоэлементам выходить за пределы контейнера */
+    }
+
+        .content-container h2 {
+            position: relative; /* Для позиционирования псевдоэлемента */
+            margin: 0;
+            padding: 10px 40px; /* Паддинг для текста */
+            background-color: rgba(0, 0, 0, 0.5); /* Фоновый цвет для текста */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%); /* Скошенный слева угол */
+        }
+
+            .content-container h2::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -20px; /* Смещение для создания скоса */
+                width: 100%; /* Ширина псевдоэлемента */
+                height: 100%; /* Высота псевдоэлемента */
+                background-color: #013A63; /* Цвет фона псевдоэлемента */
+                z-index: -1; /* Псевдоэлемент находится под текстом */
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Форма скошенного блока */
+            }
+
+
+    h2 {
+        margin: 0; /* Убираем отступы */
+    }
+
+    .photo-block {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        background-color: #f8f9fa;
+        overflow: hidden;
+        border-radius: 10px; /* Закругление всех углов */
+    }
+
+    .photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .photo-button, .btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px; /* Скругление кнопок */
+    }
+
+    .text-block {
+        background-color: #014F86;
+        color: white;
+        padding: 20px;
+        height: 250px;
+        overflow: auto;
+        border-radius: 8px;
+    }
+
     .avatar {
         vertical-align: middle;
         width: 50px;
@@ -27,124 +122,36 @@
         background-color: #dc3545;
     }
 
-    .block {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        margin-bottom: 80px;
-    }
-
-    .image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .background-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0 40px 40px 0;
-    }
-
-    .content-container {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background-color: transparent;
-        border-radius: 0 40px 40px 0;
-    }
-
-        .content-container h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .content-container p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-
-    .eeeee{
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    h2 {
-        color: white;
-        font-family: Arial;
-    }
-
-    .photo-block {
-        position: relative;
-        width: 100%;
-        height: 250px; /* Устанавливаем фиксированную высоту */
-        background-color: #f8f9fa;
-        overflow: hidden; /* Скрываем часть изображения, выходящую за рамки */
-        border-radius: 10px
-    }
-
-    .photo-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Заполняет блок, сохраняя пропорции */
-        display: block;
-    }
-
-    .photo-button {
-        position: absolute;
-        bottom: 10px; /* Расположение кнопки внизу */
-        left: 50%; /* Центрирование кнопки */
-        transform: translateX(-50%); /* Точное центрирование */
-    }
-
-    .text-block {
-        background-color: #014F86; /* Синий фон */
-        color: white; /* Белый текст */
-        padding: 20px; /* Добавляем внутренние отступы */
-        height: 250px; /* Высота за вычетом паддингов */
-        overflow: auto; /* Добавляет скролл при необходимости */
-        border-radius: 8px; /* Скругление углов */
-    }
-
-    .btn-primary {
-        color: #fff;
-        background-color: #1b6ec2;
-        border-color: #1861ac;
-    }
 </style>
 <div class="block">
 
-                <button class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" style="width: 150px" asp-area="" asp-controller="Home" asp-action="StartPage">Вернуться на главную</button>
+    <button class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" style="width: 150px" asp-area="" asp-controller="Home" asp-action="StartPage">Вернуться на главную</button>
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="~/videos/videoplayback.webm" type="video/webm">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+    </div>
 
-                <div class="image-container">
-                    <img src="\images\tekken.jpg" class="background-image" alt="Tekken">
-                </div>
-                <div class="content-container">
-                    <h2>МЫ ОЖИДАЕМ</h2>
-                </div>
+    <div class="content-container">
+        <h2>МЫ ОЖИДАЕМ</h2>
+    </div>
 
-            </div>
+</div>
 <div class="container">
-    
+
     <div class="row">
-        
+
         <div class="col-9">
             <!-- Большой блок сверху -->
-            
+
             <div class="row">
-                
             </div>
             <!-- Первая строка с двумя маленькими блоками -->
             <div class="row mt-3">
                 <div class="col-6">
                     <div class="photo-block">
-                        <img src="~/images/tekken.jpg" alt="Photo" class="photo-img"/>
+                        <img src="~/images/tekken.jpg" alt="Photo" class="photo-img" />
                         <button class="btn btn-primary photo-button">Перейти на страницу</button>
                     </div>
                 </div>
@@ -171,7 +178,7 @@
             <div class="row mt-3">
                 <div class="col-6">
                     <div class="photo-block">
-                        <img src="~/images/valheim.jpg" alt="Photo" class="photo-img"/>
+                        <img src="~/images/valheim.jpg" alt="Photo" class="photo-img" />
                         <button class="btn btn-primary photo-button">Перейти на страницу</button>
                     </div>
                 </div>
