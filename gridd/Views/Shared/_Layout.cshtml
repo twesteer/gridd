@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - gridd</title>
+    <title>@ViewData["Title"] Grid | Онлайн магазин игр</title>
+    <link rel="shortcut icon" href="~/images/logo-black.png" type="image/png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/gridd.styles.css" asp-append-version="true" />
 </head>
 <body style="background-color:#2A6F97;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow mb-3" style="background-color: #01497C;">
+        <nav class="navbar fixed-top navbar-expand-sm  box-shadow mb-3" style="background-color: #01497C; box-shadow: 0px 4px 16px 3px rgba(0, 0, 0, 0.5);">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="StartPage">
                     <img src="\images\logo.png" alt="" width="60" height="48">
@@ -33,7 +34,7 @@
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="margin-top:100px">
             @RenderBody()
         </main>
     </div>

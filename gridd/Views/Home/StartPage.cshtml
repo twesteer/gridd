@@ -2,10 +2,11 @@
 <style>
 
 
-    h2{
-        color:white;
-        font-family:Arial;
+    h2 {
+        color: white;
+        font-family: Arial;
     }
+
     .block {
         position: relative;
         width: 100%;
@@ -20,6 +21,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        filter: drop-shadow(0px 5px 10px #000000);
     }
 
     .background-image {
@@ -37,42 +39,37 @@
         border-radius: 0 40px 40px 0;
     }
 
-    .content-container h2 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        
-    }
+        .content-container h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
 
-    .content-container p {
-        font-size: 16px;
-        line-height: 1.5;
-    
-    }
+        .content-container p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    .list-group-item{
+    .list-group-item {
         background-color: #014F86;
         color: white;
-        text-align:center;
-    }
-    
-    .card{
-        border-radius: 20px;
-    }
-    
-    #ttt{
-        margin-left: -12px;
-        
+        text-align: center;
     }
 
-    
-    
+    .card {
+        border-radius: 20px;
+    }
+
+    #ttt {
+        margin-left: -12px;
+    }
+
 </style>
 
 <div class="container-fluid">
     <div class="row">
         <div id="ttt" class="col-md-8">
 
-            <div class="block" >
+            <div class="block">
                 <div class="image-container">
                     <img src="images\baldur.jpeg" class="background-image" alt="Baldur's Gate III">
                 </div>
@@ -82,25 +79,25 @@
             </div>
 
             <a asp-area="" asp-controller="Home" asp-action="ActualPage">
-            <div class="block">
-                <div class="image-container">
-                    <img src="images\tekken.jpg" class="background-image" alt="Tekken">
+                <div class="block">
+                    <div class="image-container">
+                        <img src="images\tekken.jpg" class="background-image" alt="Tekken">
+                    </div>
+                    <div class="content-container">
+                        <h2>АКТУАЛЬНЫЕ СКИДКИ</h2>
+                    </div>
                 </div>
-                <div class="content-container">
-                    <h2>АКТУАЛЬНЫЕ СКИДКИ</h2>
-                </div>
-            </div>
             </a>
 
-            <a asp-area ="" asp-controller="Home" asp-action="WaitPage">
-            <div class="block">
-                <div class="image-container">
-                    <img src="images\valheim.jpg" class="background-image" alt="Valheim">
+            <a asp-area="" asp-controller="Home" asp-action="WaitPage">
+                <div class="block">
+                    <div class="image-container">
+                        <img src="images\valheim.jpg" class="background-image" alt="Valheim">
+                    </div>
+                    <div class="content-container">
+                        <h2>ОЖИДАЕМ</h2>
+                    </div>
                 </div>
-                <div class="content-container">
-                    <h2>ОЖИДАЕМ</h2>
-                </div>
-            </div>
             </a>
 
             <div class="block">
