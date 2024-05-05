@@ -23,8 +23,8 @@ namespace gridd.Models
         [Required]
         [StringLength(100)]
         public string AddressUser { get; set; }
-        public byte[] Img { get; set; }
-        [Required]
+        public byte[]? Img { get; set; }
+
         [EmailAddress]
         [StringLength(100)]
         public string Email { get; set; }
