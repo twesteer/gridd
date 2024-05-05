@@ -68,7 +68,7 @@
 <div class="container-fluid">
     <div class="row">
         <div id="ttt" class="col-md-8">
-
+            <a asp-area="" asp-controller="Home" asp-action="NewsPage">
             <div class="block">
                 <div class="image-container">
                     <img src="images\baldur.jpeg" class="background-image" alt="Baldur's Gate III">
@@ -77,6 +77,7 @@
                     <h2>СВЕЖИЕ НОВОСТИ</h2>
                 </div>
             </div>
+            </a>
 
             <a asp-area="" asp-controller="Home" asp-action="ActualPage">
                 <div class="block">
@@ -134,7 +135,7 @@
             </div>
             <div class="card" style="width: 18rem; height: 30rem; margin:5%; background-color:#014F86">
                 <div class="card-body" style="align-content:center">
-                    <h5 class="card-title" style="color:white; align-self:start">Друзья</h5>
+                   <a asp-area="" asp-controller="Home" asp-action="ProfilePage"> <h5 class="card-title" style="color:white; align-self:start">Друзья</h5> </a>
                     <p class="card-text" style="color:white; text-align:justify">Войдите в свой аккаунт, чтобы просматривать список друзей.</p>
                 </div>
             </div>

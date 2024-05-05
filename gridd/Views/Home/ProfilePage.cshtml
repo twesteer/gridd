@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Views_Home_ProfilePage>
+
+<style>
+    .profile-card {
+        position: relative;
+        overflow: visible; /* Позволяет фото выходить за границы карточки */
+        padding-top: 20px; /* Увеличьте этот отступ, если нужно */
+    }
+    .profile-img {
+        width: 160px; /* или желаемый размер */
+        height: 160px; /* или желаемый размер */
+        border-radius: 50%; /* Делает изображение круглым */
+        position: absolute;
+        top: -80px; /* Половина размера изображения */
+        left: 30px; /* Небольшой отступ слева */
+        border: 3px solid white; /* Опционально, добавляет границу вокруг изображения */
+        z-index: 5; /* Убедитесь, что изображение остаётся поверх текста */
+    }
+
+    .container {
+        padding-top: 70px;
+    }
+
+</style>
+
+
+
+<div class="container mt-3">
+    <div class="row">
+        
+        <div class="col-md-8">
+            <div class="card profile-card">
+                <div class="card-body d-flex align-items-center" style="padding-top: 90px;">
+                    <img src="https://via.placeholder.com/150" alt="Имя пользователя" class="profile-img">
+                    <div class="profile-info ms-3 p-2 border rounded">
+                        <h5 class="card-title mb-1">Имя пользователя</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <!-- Список друзей -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Друзья
+                </div>
+                
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Друг 1</li>
+                        <li class="list-group-item">Друг 2</li>
+                        <li class="list-group-item">Друг 3</li>
+                        <!-- Добавьте дополнительных друзей по аналогии -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

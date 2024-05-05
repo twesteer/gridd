@@ -43,5 +43,15 @@ namespace gridd.Controllers
         {
             return View();
         }
+
+        public IActionResult NewsPage()
+        {
+            return View();
+        }
+
+        public IActionResult ProfilePage()
+        {
+            return View();
+        }
     }
 }
