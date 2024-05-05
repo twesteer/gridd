@@ -96,7 +96,7 @@
     </div>
 
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
@@ -106,46 +106,52 @@
                 </div>
                 <div class="modal-body">
                     <form asp-action="Register" asp-controller="Account" method="post" id="registerForm">
-                        <div class="form-group">
-                            <label for="fullNameUser">Никнейм</label>
-                            <input type="text" class="form-control" id="fullNameUser" name="fullNameUser" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nameUser">Имя</label>
-                            <input type="text" class="form-control" id="nameUser" name="nameUser" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="patronymic">Отчество</label>
-                            <input type="text" class="form-control" id="patronymic" name="patronymic" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Возраст</label>
-                            <input type="number" class="form-control" id="age" name="age" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="text" class="form-control" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="addressUser">Адрес</label>
-                            <input type="text" class="form-control" id="addressUser" name="addressUser" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="img">URL изображения</label>
-                            <input type="text" class="form-control" id="img" name="img">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Электронная почта</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fullNameUser">Никнейм</label>
+                                    <input type="text" class="form-control" id="fullNameUser" name="fullNameUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nameUser">Имя</label>
+                                    <input type="text" class="form-control" id="nameUser" name="nameUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patronymic">Отчество</label>
+                                    <input type="text" class="form-control" id="patronymic" name="patronymic" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Возраст</label>
+                                    <input type="number" class="form-control" id="age" name="age" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Телефон</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressUser">Адрес</label>
+                                    <input type="text" class="form-control" id="addressUser" name="addressUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">URL изображения</label>
+                                    <input type="text" class="form-control" id="img" name="img">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Электронная почта</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="pass">Пароль</label>
                             <input type="password" class="form-control" id="pass" name="pass" required>
                         </div>
                         <div class="form-group">
-                            <label for="countryId">ID страны</label>
+                            <label for="countryId">Страна</label>
                             <select class="form-control" id="countryId" name="countryId" required>
-                                <!-- тут из бдшки загружаешь страны -->
+                                <!-- Опции для выбора страны -->
                             </select>
                         </div>
                     </form>
@@ -157,6 +163,7 @@
             </div>
         </div>
     </div>
+
 
 
 
