@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace gridd.Models
 {
@@ -25,6 +27,8 @@ namespace gridd.Models
         public Categories Categories { get; set; }
 
         public ICollection<Achievement> Achievements { get; set; }
-        public object ReceivedGames { get; internal set; }
+
+        // Изменено с object на ICollection<ReceivedGame>
+        public ICollection<ReceivedGame> ReceivedGames { get; set; }
     }
 }

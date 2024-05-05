@@ -1,7 +1,14 @@
+using gridd;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configure DbContext with connection string
+builder.Services.AddDbContext<YourDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
@@ -9,7 +16,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -20,14 +26,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseRouting();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=StartPage}/{id?}");
-});
-
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=StartPage}/{id?}");
 
 app.Run();
