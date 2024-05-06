@@ -53,5 +53,10 @@ namespace gridd.Controllers
         {
             return View();
         }
+
+        public IActionResult LoginPage()
+        {
+            return View();
+        }
     }
 }
