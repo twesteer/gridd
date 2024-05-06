@@ -1,13 +1,14 @@
 ﻿using gridd.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace gridd.Controllers
 {
     public class HomeController : Controller
     {
         private readonly MyDbContext _context;
-
+        Users userrr;
         public HomeController(MyDbContext context)
         {
             _context = context;
@@ -60,10 +61,7 @@ namespace gridd.Controllers
             return View();
         }
 
-        public IActionResult ProfilePage()
-        {
-            return View("ProfilePage");
-        }
+      
 
         [HttpPost]
         public IActionResult AddUser(string FullNameUser, string NameUser, string Patronymic, int Age, string Phone, string AddressUser, string Img, string Email, string Pass, int CountryId, string NameCountry)
@@ -95,19 +93,28 @@ namespace gridd.Controllers
             return View("StartPage");
         }
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public IActionResult Login( string email, string password)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Pass == password);
             if (user != null)
             {
-
+                userrr = user;
+                ViewBag.DateOfBirth = userrr.Age;
+                ViewBag.RealName = userrr.FullNameUser;
+                ViewBag.Email = userrr.Email;
+                ViewBag.Img= userrr.Img;
+                ViewBag.NameUser = userrr.NameUser;
                 return View("ProfilePage");
+                
             }
+            
             else
             {
                 ViewBag.Error = "Неверный email или пароль";
                 return View(); // Повторно показать форму с сообщением об ошибке
             }
         }
+      
+
     }
 }

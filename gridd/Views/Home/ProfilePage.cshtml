@@ -5,7 +5,9 @@
         position: relative;
         overflow: visible; /* Позволяет фото выходить за границы карточки */
         padding-top: 20px; /* Увеличьте этот отступ, если нужно */
+        background-color: #01497C;
     }
+
     .profile-img {
         width: 160px; /* или желаемый размер */
         height: 160px; /* или желаемый размер */
@@ -21,6 +23,56 @@
         padding-top: 70px;
     }
 
+    h5, p {
+        color: white;
+    }
+    h6 {
+    color: black;
+    }
+
+    .card-header, .card-body {
+        background-color: #01497C;
+        color: white;
+    }
+
+    tr, th {
+        color: white;
+    }
+
+    .text-block {
+        background-color: #014F86;
+        color: white;
+        padding: 20px;
+        height: 250px;
+        overflow: auto;
+        border-radius: 8px;
+    }
+
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .status {
+        height: 10px;
+        width: 10px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .online {
+        background-color: #28a745;
+    }
+
+    .offline {
+        background-color: #dc3545;
+    }
+
 </style>
 
 
@@ -31,15 +83,61 @@
         <div class="col-md-8">
             <div class="card profile-card">
                 <div class="card-body d-flex align-items-center" style="padding-top: 90px;">
-                    <img src="https://via.placeholder.com/150" alt="Имя пользователя" class="profile-img">
+                    <img src="@ViewBag.Img" class="profile-img">
                     <div class="profile-info ms-3 p-2 ">
-                        <h5 class="card-title mb-1 border rounded" style="padding: 5px">Имя пользователя</h5>
+                        <h5 class="card-title mb-1 border rounded" style="padding: 5px">Имя пользователя: @ViewBag.RealName</h5>
                         <div class="additional-info mt-3 border rounded" style="padding:5px">
                             <h6 class="mb-2">Информация</h6>
-                            <p><strong>Дата рождения:</strong> <!--из бд тут надо --> </p>
-                            <p><strong>Настоящее имя:</strong> <!--из бд тут надо --> </p>
-                            <p><strong>Город проживания:</strong> <!--из бд тут надо --> </p>
-                            <p><strong>Ссылка на профиль:</strong> <a href="#" id="profileLink"> 123<!--из бд тут надо только ник --> </a></p>
+                            <p><strong>Дата рождения:</strong> @ViewBag.DateOfBirth </p>
+                            <p><strong>Настоящее имя:</strong> @ViewBag.NameUser </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="card-title">Недавняя активность</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Пример элемента активности -->
+                        <div class="col-sm-4">
+                            <img src="~/images/tekken.jpg" alt="Игра" class="img-fluid">
+                        </div>
+                        <div class="col-sm-4">
+                            <h6>Tekken8</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>123 часа</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="card-title">Личный блог</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-2">
+                            <img src="~/images/baldur.jpeg" alt="Аватарка" class="img-fluid">
+                        </div>
+                        <div class="col-sm-10">
+                            <p>Здесь много текста о разных интересных моментах из жизни, рассказы о путешествиях, хобби и других увлечениях.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/images/rust.png" alt="Фотография из путешествия" class="img-fluid">
+                        </div>
+                        <div class="col-sm-8">
+                            <p>Дополнительный текст с описанием приключений, новых открытий и забавных случаев.</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="~/images/valheim.jpg" alt="Еще одна фотография" class="img-fluid">
+                        </div>
+                        <div class="col-sm-8">
+                            <p>Это место для деления с друзьями и посетителями личного опыта и впечатлений.</p>
                         </div>
                     </div>
                 </div>
@@ -47,21 +145,49 @@
         </div>
 
 
-        
+
+
+
         <!-- Список друзей -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
                     Друзья
                 </div>
-                
+
                 <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">Друг 1</li>
-                        <li class="list-group-item">Друг 2</li>
-                        <li class="list-group-item">Друг 3</li>
-                        <!-- Добавьте дополнительных друзей по аналогии -->
-                    </ul>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+                        <div class="ml-3">
+                            <h6 class="mb-0">Ник пользователя</h6>
+                            <small>#26734</small>
+                        </div>
+                        <span class="status offline ml-auto"></span>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+                        <div class="ml-3">
+                            <h6 class="mb-0">Ник пользователя</h6>
+                            <small>#26734</small>
+                        </div>
+                        <span class="status offline ml-auto"></span>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+                        <div class="ml-3">
+                            <h6 class="mb-0">Ник пользователя</h6>
+                            <small>#26734</small>
+                        </div>
+                        <span class="status offline ml-auto"></span>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+                        <div class="ml-3">
+                            <h6 class="mb-0">Ник пользователя</h6>
+                            <small>#26734</small>
+                        </div>
+                        <span class="status offline ml-auto"></span>
+                    </li>
                 </div>
             </div>
         </div>
