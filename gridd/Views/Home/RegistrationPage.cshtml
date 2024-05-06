@@ -6,8 +6,8 @@
                 <div class="card-header">
                     <h5 class="card-title">Регистрация</h5>
                 </div>
-                <div class="card-body">
-                    <form asp-action="Register" asp-controller="Account" method="post" id="registerForm">
+<form method="post" action="@Url.Action("AddUser", "Home")" id="registerForm">
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -53,14 +53,18 @@
                         <div class="form-group">
                             <label for="countryId">Страна</label>
                             <select class="form-control" id="countryId" name="countryId" required>
-                                <!-- Опции для выбора страны -->
+                                @foreach (var country in ViewBag.Countries)
+                                {
+                                    <option value="@country.Id">@country.NameCountry</option>
+                                }
                             </select>
+
                         </div>
-                        <button type="submit" class="btn btn-primary" form="registerForm">Зарегистрироваться</button>
-                    </form>
-                </div>
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    </div>
+                </form>
                 <div class="card-footer text-muted">
-                    <button type="button" class="btn btn-secondary">Закрыть</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">Закрыть</button>
                 </div>
             </div>
         </div>

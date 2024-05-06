@@ -4,9 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace gridd
 {
-    public class YourDbContext : DbContext
+    public class MyDbContext : DbContext
     {
-        public YourDbContext(DbContextOptions<YourDbContext> options) : base(options)
+        public MyDbContext()
+        {
+        }
+
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
 
@@ -62,3 +66,10 @@ namespace gridd
 
     }
 }
+        //public AddDbContext()
+        //{
+        //}
+
+        //public AddDbContext(DbContextOptions<AddDbContext> options) : base(options)
+        //{
+        //} 

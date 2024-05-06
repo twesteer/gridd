@@ -10,7 +10,7 @@ using gridd;
 
 namespace gridd.Migrations
 {
-    [DbContext(typeof(YourDbContext))]
+    [DbContext(typeof(MyDbContext))]
     partial class YourDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -227,8 +227,9 @@ namespace gridd.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<byte[]>("Img")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameUser")
                         .IsRequired()

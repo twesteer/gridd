@@ -6,11 +6,11 @@ namespace gridd.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MyDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -49,11 +49,6 @@ namespace gridd.Controllers
             return View();
         }
 
-        public IActionResult ProfilePage()
-        {
-            return View();
-        }
-
         public IActionResult LoginPage()
         {
             return View();
@@ -61,7 +56,58 @@ namespace gridd.Controllers
 
         public IActionResult RegistrationPage()
         {
+            ViewBag.Countries = _context.Countries.ToList();
             return View();
+        }
+
+        public IActionResult ProfilePage()
+        {
+            return View("ProfilePage");
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(string FullNameUser, string NameUser, string Patronymic, int Age, string Phone, string AddressUser, string Img, string Email, string Pass, int CountryId, string NameCountry)
+        {
+            // Получаем объект Country из базы данных по его Id
+            var country = _context.Countries.FirstOrDefault(c => c.NameCountry == NameCountry);
+
+            // Создаем нового пользователя, передавая полученный объект Country в конструктор
+            var user = new Users(FullNameUser, NameUser, Patronymic, Age, Phone, AddressUser, Img, Email, Pass, CountryId)
+            {
+                FullNameUser = FullNameUser,
+                NameUser = NameUser,
+                Patronymic = Patronymic,
+                Age = Age,
+                Phone = Phone,
+                AddressUser = AddressUser,
+                Img = Img,
+                Email = Email,
+                Pass = Pass,
+                CountryId = CountryId,
+             
+            };
+
+            // Добавляем пользователя в контекст базы данных и сохраняем изменения
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            // Возвращаем представление "StarPage" из контроллера "Home"
+            return View("StartPage");
+        }
+        [HttpPost]
+        public IActionResult Login(string email, string password)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Pass == password);
+            if (user != null)
+            {
+
+                return View("ProfilePage");
+            }
+            else
+            {
+                ViewBag.Error = "Неверный email или пароль";
+                return View(); // Повторно показать форму с сообщением об ошибке
+            }
         }
     }
 }

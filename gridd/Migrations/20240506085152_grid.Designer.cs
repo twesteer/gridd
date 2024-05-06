@@ -12,8 +12,8 @@ using gridd;
 namespace gridd.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240505160032_234")]
-    partial class _234
+    [Migration("20240506085152_grid")]
+    partial class grid
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

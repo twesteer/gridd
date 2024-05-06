@@ -11,7 +11,7 @@ using gridd;
 
 namespace gridd.Migrations
 {
-    [DbContext(typeof(YourDbContext))]
+    [DbContext(typeof(MyDbContext))]
     [Migration("20240505113320_321")]
     partial class _321
     {

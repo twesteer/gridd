@@ -6,11 +6,13 @@
                 <div class="card-header">
                     <h5 class="card-title">Авторизация</h5>
                 </div>
+<form method="post" action="@Url.Action("Login", "Home")" id="loginform">
+
                 <div class="card-body">
                     <form asp-action="Login" asp-controller="Account" method="post">
                         <div class="form-group">
-                            <label for="username">Логин</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <label for="Email">Email</label>
+                            <input type="text" class="form-control" id="Email" name="Email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Пароль</label>
@@ -22,7 +24,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Войти</button>
                     </form>
+                        
                 </div>
+                </form>
                 <div class="card-footer text-muted">
                     <button type="button" class="btn btn-secondary">Закрыть</button>
                 </div>

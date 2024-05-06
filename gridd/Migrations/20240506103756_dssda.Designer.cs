@@ -12,8 +12,8 @@ using gridd;
 namespace gridd.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240505160032_234")]
-    partial class _234
+    [Migration("20240506103756_dssda")]
+    partial class dssda
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -229,8 +229,9 @@ namespace gridd.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<byte[]>("Img")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameUser")
                         .IsRequired()
