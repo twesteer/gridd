@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Views_Home_RegistrationPage>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Регистрация</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Register" asp-controller="Account" method="post" id="registerForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fullNameUser">Никнейм</label>
+                                    <input type="text" class="form-control" id="fullNameUser" name="fullNameUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nameUser">Имя</label>
+                                    <input type="text" class="form-control" id="nameUser" name="nameUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patronymic">Отчество</label>
+                                    <input type="text" class="form-control" id="patronymic" name="patronymic" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Возраст</label>
+                                    <input type="number" class="form-control" id="age" name="age" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Телефон</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressUser">Адрес</label>
+                                    <input type="text" class="form-control" id="addressUser" name="addressUser" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="img">URL изображения</label>
+                                    <input type="text" class="form-control" id="img" name="img">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Электронная почта</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">Пароль</label>
+                            <input type="password" class="form-control" id="pass" name="pass" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="countryId">Страна</label>
+                            <select class="form-control" id="countryId" name="countryId" required>
+                                <!-- Опции для выбора страны -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" form="registerForm">Зарегистрироваться</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-secondary">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

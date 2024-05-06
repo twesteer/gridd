@@ -58,5 +58,10 @@ namespace gridd.Controllers
         {
             return View();
         }
+
+        public IActionResult RegistrationPage()
+        {
+            return View();
+        }
     }
 }
