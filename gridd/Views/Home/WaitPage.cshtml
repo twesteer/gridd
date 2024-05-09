@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Views_Home_WaitPage>
+﻿@model IEnumerable<gridd.Models.Users>
 
 <style>
     .block {
@@ -20,11 +20,11 @@
         align-items: center;
     }
 
-    .video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
     .background-image {
         width: 100%;
@@ -42,25 +42,25 @@
         overflow: visible; /* Позволяет псевдоэлементам выходить за пределы контейнера */
     }
 
-    .content-container h2 {
-        position: relative; /* Для позиционирования псевдоэлемента */
-        margin: 0;
-        padding: 10px 40px; /* Паддинг для текста */
-        background-color: rgba(0, 0, 0, 0.5); /* Фоновый цвет для текста */
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%); /* Скошенный слева угол */
-    }
+        .content-container h2 {
+            position: relative; /* Для позиционирования псевдоэлемента */
+            margin: 0;
+            padding: 10px 40px; /* Паддинг для текста */
+            background-color: rgba(0, 0, 0, 0.5); /* Фоновый цвет для текста */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%); /* Скошенный слева угол */
+        }
 
-    .content-container h2::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -20px; /* Смещение для создания скоса */
-        width: 100%; /* Ширина псевдоэлемента */
-        height: 100%; /* Высота псевдоэлемента */
-        background-color: #013A63; /* Цвет фона псевдоэлемента */
-        z-index: -1; /* Псевдоэлемент находится под текстом */
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Форма скошенного блока */
-    }
+            .content-container h2::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -20px; /* Смещение для создания скоса */
+                width: 100%; /* Ширина псевдоэлемента */
+                height: 100%; /* Высота псевдоэлемента */
+                background-color: #013A63; /* Цвет фона псевдоэлемента */
+                z-index: -1; /* Псевдоэлемент находится под текстом */
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Форма скошенного блока */
+            }
 
 
     h2 {
@@ -83,7 +83,7 @@
         display: block;
     }
 
-    .photo-button{
+    .photo-button {
         position: absolute;
         bottom: 10px;
         left: 50%;
@@ -165,7 +165,9 @@
                 </div>
                 <div class="col-6">
                     <div class="text-block">
-                        Это текстовый блок с синим фоном и белым текстом. Здесь может быть любой текст, который вы захотите добавить.
+                        Tekken 8 — это компьютерная игра в жанре файтинг, разработанная японской командой Tekken Project Team и выпущенная 26 января 2024 года японским издателем Bandai Namco Entertainment.
+                        Это восьмая игра в серии Tekken и вторая, которая работает на движке Unreal Engine.
+                        В игре представлено 32 играбельных персонажа, из которых 29 вернувшихся и 3 — новые.
                     </div>
                 </div>
             </div>
@@ -173,7 +175,7 @@
             <div class="row mt-3">
                 <div class="col-6">
                     <div class="text-block">
-                        Это текстовый блок с синим фоном и белым текстом. Здесь может быть любой текст, который вы захотите добавить.
+                        Baldur’s Gate III — эпическая история в духе любой D&D -кампании, где герои проходят путь от безымянных искателей приключений до существ, способных изменить мир или разрушить его до основания. Порой игра становится комичной и напоминает о знаменитом юморе Larian, иногда вызывает слёзы и сопереживание, страх за героев или отвращение к своей персоне.
                     </div>
                 </div>
                 <div class="col-6">
@@ -192,63 +194,31 @@
                 </div>
                 <div class="col-6">
                     <div class="text-block">
-                        Это текстовый блок с синим фоном и белым текстом. Здесь может быть любой текст, который вы захотите добавить.
+                        Valheim — это симулятор выживания, вдохновленный культурой викингов. Игроки оказываются в сказочном мире, разделенном на биомы. Герой в лохмотьях начинает свое приключение с поколачивания дерева кулаками для добычи ресурсов, а заканчивает великим воином в шикарной броне из шкуры волка — с собственным средневековым замком, фермой и парочкой личных драккаров.
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-3" style="margin-top:15px">
-            <ul class="list-group" style="background-color: #01497C">
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/valheim.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#14372</small>
+        <div class="container">
+            <div class="row">
+                @foreach (var user in Model)
+                {
+                    <div class="col-6">
+                        <div class="photo-block">
+                            <img src="@user.Img" alt="Photo" class="photo-img" />
+                            <button class="btn btn-primary photo-button">Перейти на страницу</button>
+                        </div>
                     </div>
-                    <span class="status online ml-auto"></span>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#26734</small>
+                    <div class="col-6">
+                        <div class="text-block">
+                            <h2>@user.FullNameUser</h2>
+                            <p>Возраст: @user.Age</p>
+                            <p>Адрес: @user.AddressUser</p>
+                            <!-- Другие данные пользователя, которые вы хотите отобразить -->
+                        </div>
                     </div>
-                    <span class="status offline ml-auto"></span>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#26734</small>
-                    </div>
-                    <span class="status offline ml-auto"></span>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#26734</small>
-                    </div>
-                    <span class="status offline ml-auto"></span>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#26734</small>
-                    </div>
-                    <span class="status offline ml-auto"></span>
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                    <div class="ml-3">
-                        <h6 class="mb-0">Ник пользователя</h6>
-                        <small>#26734</small>
-                    </div>
-                    <span class="status offline ml-auto"></span>
-                </li>
-                <!-- Добавьте дополнительные элементы списка для других друзей -->
-            </ul>
+                }
+            </div>
         </div>
     </div>
 </div>

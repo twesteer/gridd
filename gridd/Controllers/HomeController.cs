@@ -31,7 +31,8 @@ namespace gridd.Controllers
 
         public IActionResult WaitPage()
         {
-            return View();
+            var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
+            return View(users); // Передача списка пользователей в представление
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -60,6 +61,8 @@ namespace gridd.Controllers
             ViewBag.Countries = _context.Countries.ToList();
             return View();
         }
+
+
 
       
 
