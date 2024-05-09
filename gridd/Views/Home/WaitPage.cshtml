@@ -134,7 +134,6 @@
 
 </style>
 <div class="block" style="width: 100%; overflow: hidden;">
-    <button class="btn" style="margin: 0px 20px 0px 0px; width: 150px; height:35px; background-color: #013A63; border-radius: 10px; color:white;" asp-area="" asp-controller="Home" asp-action="StartPage">Вернуться на главную</button>
     <div class="video-container">
         <video autoplay loop muted playsinline>
             <source src="~/tekken.mp4" type="video/mp4">
@@ -199,26 +198,20 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group" style="background-color: #01497C">
+                <!-- Перечисление друзей -->
                 @foreach (var user in Model)
                 {
-                    <div class="col-6">
-                        <div class="photo-block">
-                            <img src="@user.Img" alt="Photo" class="photo-img" />
-                            <button class="btn btn-primary photo-button">Перейти на страницу</button>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="@user.Img" alt="Аватар" class="avatar">
+                        <div class="ml-3">
+                            <h6 class="mb-0">@user.FullNameUser</h6>
+                            <small>@user.Id</small>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="text-block">
-                            <h2>@user.FullNameUser</h2>
-                            <p>Возраст: @user.Age</p>
-                            <p>Адрес: @user.AddressUser</p>
-                            <!-- Другие данные пользователя, которые вы хотите отобразить -->
-                        </div>
-                    </div>
+                    </li>
                 }
-            </div>
+            </ul>
         </div>
     </div>
 </div>

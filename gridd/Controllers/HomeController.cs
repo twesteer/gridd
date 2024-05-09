@@ -43,7 +43,8 @@ namespace gridd.Controllers
 
         public IActionResult ActualPage()
         {
-            return View();
+            var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
+            return View(users); // Передача списка пользователей в представление
         }
 
         public IActionResult NewsPage()
@@ -62,10 +63,7 @@ namespace gridd.Controllers
             return View();
         }
 
-
-
-      
-
+ 
         [HttpPost]
         public IActionResult AddUser(string FullNameUser, string NameUser, string Patronymic, int Age, string Phone, string AddressUser, string Img, string Email, string Pass, int CountryId, string NameCountry)
         {
