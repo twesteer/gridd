@@ -1,5 +1,8 @@
-﻿@model IEnumerable<gridd.Models.Users>
-
+﻿
+@{
+    var users = ViewBag.Users as IEnumerable<gridd.Models.Users>;
+    var games = ViewBag.Games as IEnumerable<gridd.Models.Games>;
+}
 <style>
 
     .price-tag {
@@ -152,25 +155,25 @@
             <div class="row">
                 <div class="row mt-3">
                     <!-- Карточка 1 -->
-                    @foreach (var product in Model)
+                    @foreach (var product in games)
                     {
-                    <div class="col-6">
-                        <div class="card">
-                            <img class="card-img-top" src="~/images/baldur.jpeg" alt="Card image cap">
-                            <div class="card-body d-flex justify-content-between flex-column">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="price-tag px-3 py-1 text-white">$199.99</div>
-                                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
-                                        <input type="hidden" name="productId" value="@product.Id" />
-                                        <button type="submit" class="btn text-white">В корзину</button>
-                                    </form>
+                        @* <div class="col-6">
+                            <div class="card">
+                                <img class="card-img-top" src="~/images/@product.ImageUrl" alt="@product.NameGame">
+                                <div class="card-body d-flex justify-content-between flex-column">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="price-tag px-3 py-1 text-white">${@product.Price}</div>
+                                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                            <input type="hidden" name="productId" value="@product.Id" />
+                                            <button type="submit" class="btn text-white">В корзину</button>
+                                        </form>
+                                    </div>
+                                    <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                                 </div>
-                                <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                             </div>
-                        </div>
-                    </div>
+                        </div> *@
                     }
-                    @foreach (var product in Model)
+                    @foreach (var product in games)
                     {
                     <div class="col-6">
                         <!-- Карточка 2 -->
@@ -191,7 +194,7 @@
                     }
                 </div>
                 <div class="row mt-3">
-                    @foreach (var product in Model)
+                    @foreach (var product in games)
                     {
                     <div class="col-6">
                         <!-- Карточка 3 -->
@@ -210,7 +213,7 @@
                         </div>
                     </div>
                     }
-                    @foreach (var product in Model)
+                    @foreach (var product in games)
                     {
                     <div class="col-6">
                         <!-- Карточка 4 -->
@@ -237,7 +240,7 @@
         <div class="col-md-3">
             <ul class="list-group" style="background-color: #01497C">
                 <!-- Перечисление друзей -->
-                @foreach (var user in Model)
+                @foreach (var user in users)
                 {
                     <li class="list-group-item d-flex align-items-center">
                         <img src="@user.Img" alt="Аватар" class="avatar">

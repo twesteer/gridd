@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Views_Home_RegistrationPage>
+﻿@model IEnumerable<gridd.Models.Users>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
@@ -6,35 +6,35 @@
                 <div class="card-header">
                     <h5 class="card-title">Регистрация</h5>
                 </div>
-<form method="post" action="@Url.Action("AddUser", "Home")" id="registerForm">
+                <form method="post" action="@Url.Action("AddUser", "Home")" id="registerForm">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="fullNameUser">Никнейм</label>
-                                    <input type="text" class="form-control" id="fullNameUser" name="fullNameUser" required>
+                                    <input type="text" class="form-control" id="fullNameUser" name="fullNameUser" maxlength="50" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nameUser">Имя</label>
-                                    <input type="text" class="form-control" id="nameUser" name="nameUser" required>
+                                    <input type="text" class="form-control" id="nameUser" name="nameUser" pattern="[А-Яа-яЁё]+" maxlength="25" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="patronymic">Отчество</label>
-                                    <input type="text" class="form-control" id="patronymic" name="patronymic" required>
+                                    <input type="text" class="form-control" id="patronymic" name="patronymic" pattern="[А-Яа-яЁё]+" maxlength="25" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="age">Возраст</label>
-                                    <input type="number" class="form-control" id="age" name="age" required>
+                                    <input type="number" class="form-control" id="age" name="age" min="16" max="80" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="phone">Телефон</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                    <input type="text" class="form-control" id="phone" name="phone" pattern="\d{11}" maxlength="11" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="addressUser">Адрес</label>
-                                    <input type="text" class="form-control" id="addressUser" name="addressUser" required>
+                                    <input type="text" class="form-control" id="addressUser" name="addressUser" maxlength="50" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="img">URL изображения</label>
@@ -42,13 +42,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Электронная почта</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email" maxlength="25" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="pass">Пароль</label>
-                            <input type="password" class="form-control" id="pass" name="pass" required>
+                            <input type="password" class="form-control" id="pass" name="pass" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" required>
                         </div>
                         <div class="form-group">
                             <label for="countryId">Страна</label>

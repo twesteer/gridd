@@ -23,8 +23,15 @@ public class CartController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddToCart(int productId, string productName, string productImageUrl, decimal productPrice)
+    public IActionResult AddToCart(int productId)
     {
+        var product = _context.Games.FirstOrDefault(p => p.Id == productId);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+
         var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
 
         var cartItem = cart.FirstOrDefault(c => c.ProductId == productId);
@@ -36,10 +43,10 @@ public class CartController : Controller
         {
             cart.Add(new CartItem
             {
-                ProductId = productId,
-                ProductName = productName,
-                ProductImageUrl = productImageUrl,
-                ProductPrice = productPrice,
+                ProductId = product.Id,
+                ProductName = product.NameGame,
+                ProductImageUrl = product.ImageUrl,
+                ProductPrice = product.Price,
                 Quantity = 1
             });
         }
@@ -90,7 +97,7 @@ public class CartController : Controller
 
         var smtp = new SmtpClient
         {
-            Host = "smtp.your-email-provider.com",
+            Host = "smtp.yandex.ru", // Убедитесь, что этот хост правильный для вашего почтового провайдера
             Port = 587,
             EnableSsl = true,
             DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -112,8 +119,10 @@ public class CartController : Controller
     {
         return View();
     }
+    public IActionResult Checkout()
+    {
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+        return View(cart);
+    }
+
 }
-
-
-
-

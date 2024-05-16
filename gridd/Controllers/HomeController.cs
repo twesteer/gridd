@@ -69,8 +69,12 @@ namespace gridd.Controllers
 
         public IActionResult ActualPage()
         {
-            var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
-            return View(users); // Передача списка пользователей в представление
+            var users = _context.Users.ToList();
+            var games = _context.Games.ToList();
+
+            ViewBag.Users = users;
+            ViewBag.Games = games;
+            return View(); // Передача списка пользователей в представление
         }
 
         public IActionResult NewsPage()
