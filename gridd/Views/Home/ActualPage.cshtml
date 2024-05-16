@@ -152,18 +152,26 @@
             <div class="row">
                 <div class="row mt-3">
                     <!-- Карточка 1 -->
+                    @foreach (var product in Model)
+                    {
                     <div class="col-6">
                         <div class="card">
                             <img class="card-img-top" src="~/images/baldur.jpeg" alt="Card image cap">
                             <div class="card-body d-flex justify-content-between flex-column">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="price-tag px-3 py-1 text-white">$199.99</div>
-                                    <button class="btn text-white">В корзину</button>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <button type="submit" class="btn text-white">В корзину</button>
+                                    </form>
                                 </div>
                                 <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                             </div>
                         </div>
                     </div>
+                    }
+                    @foreach (var product in Model)
+                    {
                     <div class="col-6">
                         <!-- Карточка 2 -->
                         <div class="card">
@@ -171,14 +179,20 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="price-tag px-3 py-1 text-white">$299.99</div>
-                                    <button class="btn text-white">В корзину</button>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <button type="submit" class="btn text-white">В корзину</button>
+                                    </form>
                                 </div>
                                 <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 <div class="row mt-3">
+                    @foreach (var product in Model)
+                    {
                     <div class="col-6">
                         <!-- Карточка 3 -->
                         <div class="card">
@@ -186,12 +200,18 @@
                             <div class="card-body d-flex justify-content-between flex-column">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="price-tag px-3 py-1 text-white">$199.99</div>
-                                    <button class="btn text-white">В корзину</button>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <button type="submit" class="btn text-white">В корзину</button>
+                                    </form>
                                 </div>
                                 <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                             </div>
                         </div>
                     </div>
+                    }
+                    @foreach (var product in Model)
+                    {
                     <div class="col-6">
                         <!-- Карточка 4 -->
                         <div class="card">
@@ -199,12 +219,16 @@
                             <div class="card-body d-flex justify-content-between flex-column">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="price-tag px-3 py-1 text-white">$199.99</div>
-                                    <button class="btn text-white">В корзину</button>
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <button type="submit" class="btn text-white">В корзину</button>
+                                    </form>
                                 </div>
                                 <button class="btn btn-secondary w-100 mt-2">Посетить магазин</button>
                             </div>
                         </div>
                     </div>
+                    }
                 </div>
                 <!-- Можно добавить ещё карточки сюда -->
             </div>

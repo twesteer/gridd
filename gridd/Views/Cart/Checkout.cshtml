@@ -1,0 +1,47 @@
+﻿@model List<YourNamespace.Models.CartItem>
+
+@{
+    var totalAmount = Model.Sum(item => item.ProductPrice * item.Quantity);
+}
+
+<h2>Подтверждение заказа</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.ProductName - @item.ProductPrice $ (Количество: @item.Quantity)</li>
+        }
+    </ul>
+
+    <h3>Общая сумма: @totalAmount $</h3>
+
+    <form asp-action="PlaceOrder" method="post">
+        <div class="form-group">
+            <label for="cardName">Имя на карте</label>
+            <input type="text" class="form-control" id="cardName" name="CardName" required>
+        </div>
+        <div class="form-group">
+            <label for="cardNumber">Номер карты</label>
+            <input type="text" class="form-control" id="cardNumber" name="CardNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="expiryDate">Дата окончания</label>
+            <input type="text" class="form-control" id="expiryDate" name="ExpiryDate" required>
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" name="CVV" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Электронная почта</label>
+            <input type="email" class="form-control" id="email" name="Email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Оплатить</button>
+    </form>
+}
+else
+{
+    <p>Ваша корзина пуста.</p>
+}

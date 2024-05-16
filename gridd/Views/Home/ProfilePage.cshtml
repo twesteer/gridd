@@ -72,7 +72,10 @@
     .offline {
         background-color: #dc3545;
     }
-
+    img{
+       border-radius:5px;
+       margin: 10px;
+    }
 </style>
 
 
@@ -81,20 +84,21 @@
     <div class="row">
         
         <div class="col-md-8">
-            <div class="card profile-card">
+            <div class="card profile-card" style="box-shadow: 0px 3px 20px -5px #000000">
                 <div class="card-body d-flex align-items-center" style="padding-top: 90px;">
                     <img src="@ViewBag.Img" class="profile-img">
                     <div class="profile-info ms-3 p-2 ">
                         <h5 class="card-title mb-1 border rounded" style="padding: 5px">Имя пользователя: @ViewBag.RealName</h5>
                         <div class="additional-info mt-3 border rounded" style="padding:5px">
-                            <h6 class="mb-2">Информация</h6>
-                            <p><strong>Возраст:</strong> @ViewBag.DateOfBirth </p>
-                            <p><strong>Настоящее имя:</strong> @ViewBag.NameUser </p>
+                            <h6 class="mb-2" style="color: white">Информация</h6>
+                            <p><strong>Возраст:</strong> @ViewBag.DateOfBirth</p>
+                            <p><strong>Настоящее имя:</strong> @ViewBag.NameUser</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card mt-3">
+
+            <div class="card mt-3" style="box-shadow: 0px 3px 20px -5px #000000; background-color: #01497C;">
                 <div class="card-header">
                     <h5 class="card-title">Недавняя активность</h5>
                 </div>
@@ -102,10 +106,10 @@
                     <div class="row">
                         <!-- Пример элемента активности -->
                         <div class="col-sm-4">
-                            <img src="~/images/tekken.jpg" alt="Игра" class="img-fluid">
+                            <img src="~/images/tekken.jpg" alt="Игра" class="img-fluid" style="border-radius:5px">
                         </div>
                         <div class="col-sm-4">
-                            <h6>Tekken8</h6>
+                            <h6 style="color: white">Tekken8</h6>
                         </div>
                         <div class="col-sm-4">
                             <p>123 часа</p>
@@ -113,14 +117,14 @@
                     </div>
                 </div>
             </div>
-            <div class="card mt-3">
+            <div class="card mt-3" style="box-shadow: 0px 3px 20px -5px #000000; background-color: #01497C;">
                 <div class="card-header">
                     <h5 class="card-title">Личный блог</h5>
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-sm-2">
-                            <img src="~/images/baldur.jpeg" alt="Аватарка" class="img-fluid">
+                            <img src="~/images/baldur.jpeg" alt="Аватарка" class="img-fluid" style="border-radius:5px">
                         </div>
                         <div class="col-sm-10">
                             <p>Здесь много текста о разных интересных моментах из жизни, рассказы о путешествиях, хобби и других увлечениях.</p>
@@ -143,10 +147,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <div class="col-md-3">
             <ul class="list-group" style="background-color: #01497C">

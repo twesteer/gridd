@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using gridd;
 
@@ -11,9 +12,10 @@ using gridd;
 namespace gridd.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class YourDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240516160002_sljdfghjyt")]
+    partial class sljdfghjyt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,41 +50,6 @@ namespace gridd.Migrations
                     b.HasIndex("GameId");
 
                     b.ToTable("Achievements");
-                });
-
-            modelBuilder.Entity("gridd.Models.CartItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ProductId")
-                        .HasMaxLength(50)
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("ProductPrice")
-                        .HasMaxLength(50)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasMaxLength(50)
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("gridd.Models.Categories", b =>
@@ -185,33 +152,6 @@ namespace gridd.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("Games");
-                });
-
-            modelBuilder.Entity("gridd.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("Price")
-                        .HasMaxLength(50)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("gridd.Models.ReceivedAchievement", b =>

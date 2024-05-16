@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Views_Home_StartPage>
+﻿@model IEnumerable<gridd.Models.Users>
 <style>
 
 
@@ -63,26 +63,50 @@
         margin-left: -12px;
     }
 
+        .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .status {
+        height: 10px;
+        width: 10px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .online {
+        background-color: #28a745;
+    }
+
+    .offline {
+        background-color: #dc3545;
+    }
 </style>
 
 <div class="container-fluid">
     <div class="row">
         <div id="ttt" class="col-md-8">
             <a asp-area="" asp-controller="Home" asp-action="NewsPage">
-            <div class="block">
-                <div class="image-container">
-                    <img src="images\baldur.jpeg" class="background-image" alt="Baldur's Gate III">
+                <div class="block">
+                    <div class="image-container">
+                        <img src="~/images/baldur.jpeg" class="background-image" alt="Baldur's Gate III">
+                    </div>
+                    <div class="content-container">
+                        <h2>СВЕЖИЕ НОВОСТИ</h2>
+                    </div>
                 </div>
-                <div class="content-container">
-                    <h2>СВЕЖИЕ НОВОСТИ</h2>
-                </div>
-            </div>
             </a>
 
             <a asp-area="" asp-controller="Home" asp-action="ActualPage">
                 <div class="block">
                     <div class="image-container">
-                        <img src="images\tekken.jpg" class="background-image" alt="Tekken">
+                        <img src="~/images/tekken.jpg" class="background-image" alt="Tekken">
                     </div>
                     <div class="content-container">
                         <h2>АКТУАЛЬНЫЕ СКИДКИ</h2>
@@ -93,7 +117,7 @@
             <a asp-area="" asp-controller="Home" asp-action="WaitPage">
                 <div class="block">
                     <div class="image-container">
-                        <img src="images\valheim.jpg" class="background-image" alt="Valheim">
+                        <img src="~/images/valheim.jpg" class="background-image" alt="Valheim">
                     </div>
                     <div class="content-container">
                         <h2>ОЖИДАЕМ</h2>
@@ -103,7 +127,7 @@
 
             <div class="block">
                 <div class="image-container">
-                    <img src="images\rust.png" class="background-image" alt="Rust">
+                    <img src="~/images/rust.png" class="background-image" alt="Rust">
                 </div>
                 <div class="content-container">
                     <h2>ТО, ЧТО МЫ РЕКОМЕНДУЕМ</h2>
@@ -133,13 +157,22 @@
                     </ul>
                 </div>
             </div>
-            <div class="card" style="width: 18rem; height: 30rem; margin:5%; background-color:#014F86">
-                <div class="card-body" style="align-content:center">
-                   <h5 class="card-title " style="color:white; align-self:start">Друзья</h5>
-                    <p class="card-text" style="color:white; text-align:justify"><a asp-area="" asp-controller="Home" asp-action="LoginPage" style="color: white">Войдите</a>  в свой аккаунт, чтобы просматривать список друзей.</p></br>
-                    <a asp-area="" asp-controller="Home" asp-action="RegistrationPage" style="color:white">Нет Аккаунта?</a>
-                </div>
-            </div>
+            <!-- Правая колонка для списка друзей -->
+            
+                <ul class="list-group" style="background-color: #01497C; width: 18rem">
+                    <!-- Перечисление друзей -->
+                    @foreach (var user in Model)
+                    {
+                        <li class="list-group-item d-flex align-items-center">
+                            <img src="@user.Img" alt="Аватар" class="avatar">
+                            <div class="ml-3">
+                                <h6 class="mb-0">@user.FullNameUser</h6>
+                                <small>@user.Id</small>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            
         </div>
     </div>
 </div>

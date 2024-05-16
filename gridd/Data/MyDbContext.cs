@@ -23,7 +23,8 @@ namespace gridd
         public DbSet<Wallet> Wallets { get; set; }
         public DbSet<ReceivedGame> ReceivedGames { get; set; }
         public DbSet<ReceivedAchievement> ReceivedAchievements { get; set; }
-
+        public DbSet<Product> Products { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Users>()
@@ -61,6 +62,9 @@ namespace gridd
                 .HasOne(ra => ra.User)
                 .WithMany(u => u.ReceivedAchievements)
                 .HasForeignKey(ra => ra.UserId);
+
+            modelBuilder.Entity<CartItem>()
+                .HasKey(c => c.Id);
         }
 
 

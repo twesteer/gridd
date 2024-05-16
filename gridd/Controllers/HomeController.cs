@@ -1,6 +1,10 @@
 ﻿using gridd.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
 namespace gridd.Controllers
@@ -28,11 +32,29 @@ namespace gridd.Controllers
         {
             return View();
         }
+
+        public IActionResult StartPage2()
+        {
+            var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
+            return View(users);
+        }
+        [Authorize]
         public IActionResult ProfilePage()
         {
             var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
-            return View(users); // Передача списка пользователей в представление
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            if (claimsIdentity != null)
+            {
+                ViewBag.RealName = claimsIdentity.FindFirst("FullName")?.Value;
+                ViewBag.Email = claimsIdentity.FindFirst(ClaimTypes.Name)?.Value;
+                ViewBag.Img = claimsIdentity.FindFirst("Img")?.Value;
+                ViewBag.NameUser = claimsIdentity.FindFirst("NameUser")?.Value;
+                ViewBag.DateOfBirth = claimsIdentity.FindFirst("DateOfBirth")?.Value;
+            }
+
+            return View(users);
         }
+
         public IActionResult WaitPage()
         {
             var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
@@ -95,24 +117,35 @@ namespace gridd.Controllers
             _context.SaveChanges();
 
             // Возвращаем представление "StarPage" из контроллера "Home"
-            return View("StartPage");
+            return RedirectToAction("LoginPage2");
         }
+        
         [HttpPost]
-        public IActionResult Login( string email, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Pass == password);
             if (user != null)
             {
-                userrr = user;
-                ViewBag.DateOfBirth = userrr.Age;
-                ViewBag.RealName = userrr.FullNameUser;
-                ViewBag.Email = userrr.Email;
-                ViewBag.Img= userrr.Img;
-                ViewBag.NameUser = userrr.NameUser;
-                return View("ProfilePage");
-                
+                var claims = new List<Claim>
+                {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim("FullName", user.FullNameUser),
+                new Claim("Img", user.Img),
+                new Claim("NameUser", user.NameUser),
+                new Claim("DateOfBirth", user.Age.ToString())
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = true
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                return RedirectToAction("ProfilePage", "Home");
             }
-            
             else
             {
                 ViewBag.Error = "Неверный email или пароль";
@@ -120,6 +153,12 @@ namespace gridd.Controllers
             }
         }
 
+
+
+        public IActionResult LoginPage2()
+        {
+            return View();
+        }
 
     }
 }
