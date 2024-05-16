@@ -28,7 +28,11 @@ namespace gridd.Controllers
         {
             return View();
         }
-
+        public IActionResult ProfilePage()
+        {
+            var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
+            return View(users); // Передача списка пользователей в представление
+        }
         public IActionResult WaitPage()
         {
             var users = _context.Users.ToList(); // Получение списка пользователей из базы данных
@@ -115,7 +119,7 @@ namespace gridd.Controllers
                 return View(); // Повторно показать форму с сообщением об ошибке
             }
         }
-      
+
 
     }
 }

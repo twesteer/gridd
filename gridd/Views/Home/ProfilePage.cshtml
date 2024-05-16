@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Views_Home_ProfilePage>
+﻿@model IEnumerable<gridd.Models.Users>
 
 <style>
     .profile-card {
@@ -148,49 +148,20 @@
 
 
 
-        <!-- Список друзей -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    Друзья
-                </div>
-
-                <div class="card-body">
+        <div class="col-md-3">
+            <ul class="list-group" style="background-color: #01497C">
+                <!-- Перечисление друзей -->
+                @foreach (var user in Model)
+                {
                     <li class="list-group-item d-flex align-items-center">
-                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
+                        <img src="@user.Img" alt="Аватар" class="avatar">
                         <div class="ml-3">
-                            <h6 class="mb-0">Ник пользователя</h6>
-                            <small>#26734</small>
+                            <h6 class="mb-0">@user.FullNameUser</h6>
+                            <small>@user.Id</small>
                         </div>
-                        <span class="status offline ml-auto"></span>
                     </li>
-                    <li class="list-group-item d-flex align-items-center">
-                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                        <div class="ml-3">
-                            <h6 class="mb-0">Ник пользователя</h6>
-                            <small>#26734</small>
-                        </div>
-                        <span class="status offline ml-auto"></span>
-                    </li>
-                    <li class="list-group-item d-flex align-items-center">
-                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                        <div class="ml-3">
-                            <h6 class="mb-0">Ник пользователя</h6>
-                            <small>#26734</small>
-                        </div>
-                        <span class="status offline ml-auto"></span>
-                    </li>
-                    <li class="list-group-item d-flex align-items-center">
-                        <img src="~/images/tekken.jpg" alt="Аватар" class="avatar">
-                        <div class="ml-3">
-                            <h6 class="mb-0">Ник пользователя</h6>
-                            <small>#26734</small>
-                        </div>
-                        <span class="status offline ml-auto"></span>
-                    </li>
-                </div>
-            </div>
+                }
+            </ul>
         </div>
-
     </div>
 </div>
