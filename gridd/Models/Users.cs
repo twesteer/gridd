@@ -17,7 +17,7 @@ namespace gridd.Models
             if (!string.IsNullOrEmpty(patronymic) && (!patronymic.All(char.IsLetter) || patronymic.Length > 25))
                 throw new ArgumentException("Отчество должно содержать только русские буквы и не превышать 25 символов.", nameof(patronymic));
 
-            if (age < 17 || age > 99)
+            if (age < 16 || age > 99)
                 throw new ArgumentOutOfRangeException(nameof(age), "Возраст должен быть в диапазоне от 17 до 99.");
 
             if (!phone.All(char.IsDigit) || phone.Length != 11)
@@ -58,7 +58,7 @@ namespace gridd.Models
         public string Patronymic { get; set; }
 
         [Required]
-        [Range(17, 99)]
+        [Range(16, 99)]
         public int Age { get; set; }
 
         [Required]
